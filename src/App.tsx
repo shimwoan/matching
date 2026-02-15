@@ -362,7 +362,7 @@ function App() {
           <p className="text-xs text-text-sub leading-relaxed">
             과장 없이, 매칭만 해드리는 1인 개발 프로젝트입니다.
             <br />
-            문의: matchingman.dev@gmail.com
+            문의: shimwoan@gmail.com
           </p>
         </div>
       </footer>
