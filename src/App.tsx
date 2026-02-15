@@ -27,6 +27,12 @@ function App() {
     setStatus('submitting')
     setErrorMsg('')
 
+    if (!supabase) {
+      setStatus('error')
+      setErrorMsg('서버 연결이 설정되지 않았습니다.')
+      return
+    }
+
     const { error } = await supabase.from('applications').insert([
       {
         gender,
@@ -329,6 +335,21 @@ function App() {
             </p>
           </form>
         )}
+
+        {/* 신고 안내 */}
+        <div className="mt-6 flex gap-3 p-4 bg-pink-50 rounded-xl border border-pink-100">
+          <AlertCircle className="w-5 h-5 text-pink-400 flex-shrink-0 mt-0.5" />
+          <div>
+            <h4 className="text-sm font-semibold mb-1">불쾌한 상대를 만나셨나요?</h4>
+            <p className="text-text-sub text-xs leading-relaxed">
+              이상한 사람을 만나셨다면 바로 신고해주세요.
+              <br />
+              확인 즉시 검토 후 해당 사용자는 영구 차단됩니다.
+              <br />
+              안전한 매칭을 위해 적극 조치합니다.
+            </p>
+          </div>
+        </div>
       </section>
 
       {/* Footer */}
